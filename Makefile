@@ -13,6 +13,9 @@
 
 NAME = libft.a
 
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -c
+
 SRC = *.c
 
 OUT = *.o
@@ -20,8 +23,10 @@ INCLUDES = includes/
 
 all: $(NAME)
 
+.PHONY: clean fclean re
+
 $(NAME):
-	gcc -Wall -Wextra -Werror -c $(SRC) -I $(INCLUDES)
+	$(CC) $(CFLAGS) $(SRC) -I $(INCLUDES)
 	ar rc $(NAME) $(OUT)
 	ranlib $(NAME)
 

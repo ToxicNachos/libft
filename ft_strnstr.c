@@ -20,13 +20,13 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 	i = 0;
 	pos = 0;
 	if (str[i] == '\0' || to_find == '\0' || len == 0)
-		return (str);
+		return ((char *)str);
 	while (str[i])
 	{
-		while (to_find[pos] == str[i + pos] && pos < len)
+		while (to_find[pos] == str[i + pos] && (size_t)pos < len)
 		{
-			if (pos == len - 1)
-				return (str + i);
+			if ((size_t)pos == len - 1)
+				return ((char *)str + i);
 			pos++;
 		}
 		pos = 0;

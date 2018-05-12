@@ -65,7 +65,7 @@ char		**ft_strsplit(char const *s, char c)
 	{
 		while (s[x] == c)
 			x++;
-		res[i] = ft_strsub((char *)s, x, ft_strclen(char *)s, c);
+		res[i] = ft_strsub((char *)s, x, ft_strclen((char *)s, c));
 		if (res[i] == NULL)
 			return (NULL);
 		i++;
