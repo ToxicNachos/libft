@@ -15,8 +15,8 @@
 char	*ft_strstr(const char *str, const char *to_find)
 {
 	int i;
-	int pos;
-	int len;
+	int	pos;
+	int	len;
 
 	i = 0;
 	pos = 0;
@@ -24,13 +24,13 @@ char	*ft_strstr(const char *str, const char *to_find)
 	while (to_find[len] != '\0')
 		len++;
 	if (len == 0)
-		return (str);
+		return ((char *)str);
 	while (str[i])
 	{
 		while (to_find[pos] == str[i + pos])
 		{
 			if (pos == len - 1)
-				return (str + i);
+				return ((char *)str + i);
 			pos++;
 		}
 		pos = 0;
