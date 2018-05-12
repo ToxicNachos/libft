@@ -19,14 +19,13 @@ CFLAGS = -Wall -Werror -Wextra -c
 SRC = *.c
 
 OUT = *.o
-INCLUDES = includes/
 
 all: $(NAME)
 
 .PHONY: clean fclean re
 
 $(NAME):
-	$(CC) $(CFLAGS) $(SRC) -I $(INCLUDES)
+	$(CC) $(CFLAGS) $(SRC) -I libft.h
 	ar rc $(NAME) $(OUT)
 	ranlib $(NAME)
 

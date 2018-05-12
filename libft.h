@@ -11,12 +11,11 @@
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
-#define LIBFT_H
-#endif
-#include <unistd.h>
-#include <stdlib.h>
+# define LIBFT_H
+# include <unistd.h>
+# include <stdlib.h>
 
-typedef struct s_list
+typedef struct		s_list
 {
 	void			*content;
 	size_t			content_size;
@@ -40,7 +39,7 @@ size_t				ft_strlcat(char *dst, const char *src, size_t size);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *str, const char *to_find);
-char				*ft_strnstr(const char *str, const char *to_find, size_t len);
+char				*ft_strnstr(const char *str, const char *find, size_t len);
 int					ft_strcmp(const char *str1, const char *str2);
 int					ft_strncmp(const char *str1, const char *str2, size_t n);
 int					ft_atoi(const char *str);
@@ -61,8 +60,8 @@ void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-int					ft_strequ(char const *s1,char const *s2);
-int					ft_strnequ(char const *s1,char const *s2, size_t n);
+int					ft_strequ(char const *s1, char const *s2);
+int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				ft_strtrim(char const *s);
@@ -83,3 +82,5 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+#endif
