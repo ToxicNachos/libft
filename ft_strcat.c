@@ -20,18 +20,18 @@ char	*ft_strcat(char *s1, const char *s2)
 
 	i1 = 0;
 	i2 = 0;
-	tmp = (char *)malloc(sizeof(s1));
+	tmp = (char *)malloc(sizeof(char));
 	while (s1[i1])
 	{
 		tmp[i1] = s1[i1];
 		i1++;
 	}
-	i1++;
 	while (s2[i2])
 	{
 		tmp[i1] = s2[i2];
 		i1++;
 		i2++;
 	}
+	tmp[i1] = '\0';
 	return (tmp);
 }
