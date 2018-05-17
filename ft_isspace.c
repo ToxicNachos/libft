@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pkumar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/20 15:32:04 by pkumar            #+#    #+#             */
-/*   Updated: 2018/04/21 15:00:08 by pkumar           ###   ########.fr       */
+/*   Created: 2018/05/16 17:44:24 by pkumar            #+#    #+#             */
+/*   Updated: 2018/05/16 17:46:06 by pkumar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(const char *str1, const char *str2)
+int	ft_isspace(char c)
 {
-	int i;
-
-	i = 0;
-	while (str1[i] == str2[i] && str1[i] != '\0' && str2[i] != '\0')
-		i++;
-	if (!(ft_isascii(str1[i]) || ft_isascii(str2[i])))
-		return (0);
-	return ((unsigned char)str1[i] - (unsigned char)str2[i]);
+	if (c == '\t' || c == '\n' || c == ' '
+		|| c == '\v' || c == '\r' || c == '\f')
+		return (1);
+	return (0);
 }

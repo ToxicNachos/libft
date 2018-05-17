@@ -14,24 +14,14 @@
 
 char	*ft_strcat(char *s1, const char *s2)
 {
-	int		i1;
-	int		i2;
-	char	*tmp;
+	int		i;
 
-	i1 = 0;
-	i2 = 0;
-	tmp = (char *)malloc(sizeof(char));
-	while (s1[i1])
+	i = ft_strlen(s1);
+	while (*s2)
 	{
-		tmp[i1] = s1[i1];
-		i1++;
+		s1[i++] = *s2;
+		s2++;
 	}
-	while (s2[i2])
-	{
-		tmp[i1] = s2[i2];
-		i1++;
-		i2++;
-	}
-	tmp[i1] = '\0';
-	return (tmp);
+	s1[i] = '\0';
+	return (s1);
 }

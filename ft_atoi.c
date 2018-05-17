@@ -14,28 +14,20 @@
 
 int	ft_atoi(const char *str)
 {
-	int				i;
-	long long int	num;
-	long long int	isneg;
+	unsigned int	i;
+	int				num;
+	int				isneg;
 
 	i = 0;
 	num = 0;
-	isneg = 0;
-	while (str[i] <= 32)
+	isneg = 1;
+	while (ft_isspace(str[i]))
 		i++;
 	if (str[i] == '-')
 		isneg = -1;
-	if ((str[i] == '+') || (str[i] == '-'))
+	if (str[i] == '+' || str[i] == '-')
 		i++;
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
-	{
-		num *= 10;
-		num += (long long int)str[i] - '0';
-		i++;
-	}
-	if (num >= 2147483648)
-		return (0);
-	if (num <= -2147483648)
-		return (-1);
+	while (ft_isdigit(str[i]))
+		num = num * 10 + (str[i++] - '0');
 	return (num * isneg);
 }

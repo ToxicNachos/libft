@@ -14,18 +14,18 @@
 
 char	*ft_strnstr(const char *str, const char *find, size_t len)
 {
-	int i;
-	int pos;
+	int		i;
+	size_t	pos;
 
 	i = 0;
 	pos = 0;
-	if (str[i] == '\0' || find == '\0' || len == 0)
+	if (len == 0)
 		return ((char *)str);
 	while (str[i])
 	{
-		while (find[pos] == str[i + pos] && (size_t)pos < len)
+		while (find[pos] == str[i + pos] && pos < len)
 		{
-			if ((size_t)pos == len - 1)
+			if (pos == len - 1)
 				return ((char *)str + i);
 			pos++;
 		}

@@ -32,7 +32,7 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t				ft_strlen(char const *str);
 char				*ft_strdup(const char *s1);
 char				*ft_strcpy(char *dest, const char *src);
-char				*ft_strncpy(char *dest, char *src, size_t n);
+char				*ft_strncpy(char *dest, const char *src, size_t n);
 char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strncat(char *dest, char *src, int nb);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
@@ -82,5 +82,7 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+int					ft_isspace(char c);
 
 #endif
