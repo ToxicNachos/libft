@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>
+# include <string.h>
 
 typedef struct		s_list
 {
@@ -64,7 +65,7 @@ int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
-char				ft_strtrim(char const *s);
+char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
 void				ft_putchar(char c);
@@ -84,5 +85,9 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 int					ft_isspace(char c);
+void				ft_swap(int *a, int *b);
+int					ft_sqrt(int n);
+int					ft_islower(int c);
+int					ft_isupper(int c);
 
 #endif

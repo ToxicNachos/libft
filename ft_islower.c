@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_isLower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pkumar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/06 19:18:38 by pkumar            #+#    #+#             */
-/*   Updated: 2018/05/06 19:18:39 by pkumar           ###   ########.fr       */
+/*   Created: 2018/05/19 20:13:15 by pkumar            #+#    #+#             */
+/*   Updated: 2018/05/19 20:13:16 by pkumar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(const char *s, unsigned int start, size_t len)
+int	ft_islower(int c)
 {
-	char	*str;
-	int		i;
-
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	i = 0;
-	while (len--)
-	{
-		str[i] = s[start + i];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	else
+		return (0);
 }

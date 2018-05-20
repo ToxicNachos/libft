@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pkumar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/06 19:18:38 by pkumar            #+#    #+#             */
-/*   Updated: 2018/05/06 19:18:39 by pkumar           ###   ########.fr       */
+/*   Created: 2018/05/19 20:10:18 by pkumar            #+#    #+#             */
+/*   Updated: 2018/05/19 20:10:20 by pkumar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(const char *s, unsigned int start, size_t len)
+int	ft_sqrt(int n)
 {
-	char	*str;
-	int		i;
+	int i;
+	int sq;
 
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	i = 0;
-	while (len--)
-	{
-		str[i] = s[start + i];
+	i = 1;
+	sq = 1;
+	if (n == 0)
+		return (0);
+	while (i * i < n)
 		i++;
-	}
-	str[i] = '\0';
-	return (str);
+	if (n % i == 0)
+		return (i);
+	else
+		return (0);
 }

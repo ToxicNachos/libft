@@ -17,14 +17,15 @@ char	*ft_strrchr(const char *s, int c)
 	unsigned char	ch;
 	int				i;
 
-	i = 0;
+	i = ft_strlen(s);
 	ch = c;
-	while (*s && ch != '\0')
+	while (i >= 0)
 	{
-		++i;
-		if (*s == ch)
+		if (s[i] == ch)
 			return ((char *)s + i);
-		s++;
+		i--;
 	}
+	if (ch == '\0')
+		return ((char *)s + ft_strlen(s));
 	return (NULL);
 }

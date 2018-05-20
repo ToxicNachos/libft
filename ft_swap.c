@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pkumar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/06 19:18:38 by pkumar            #+#    #+#             */
-/*   Updated: 2018/05/06 19:18:39 by pkumar           ###   ########.fr       */
+/*   Created: 2018/05/19 20:06:48 by pkumar            #+#    #+#             */
+/*   Updated: 2018/05/19 20:06:50 by pkumar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(const char *s, unsigned int start, size_t len)
+void	ft_swap(int *a, int *b)
 {
-	char	*str;
-	int		i;
+	int tmp;
 
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	i = 0;
-	while (len--)
-	{
-		str[i] = s[start + i];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

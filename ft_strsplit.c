@@ -16,23 +16,21 @@ static int	ft_count_words(char *str, char c)
 {
 	int i;
 	int w;
-	int x;
 
 	i = 0;
 	w = 0;
-	x = 0;
-	while (str[x])
+	while (*str != '\0')
 	{
-		if (w == 0 && str[x] != c)
+		if (i == 1 && *str == c)
+			i = 0;
+		if (i == 0 && *str != c)
 		{
+			i = 1;
 			w++;
-			i++;
 		}
-		else if (w == 1 && str[x] == c)
-			w = 0;
-		x++;
+		str++;
 	}
-	return (i);
+	return (w);
 }
 
 static int	ft_strclen(char *str, char c)
@@ -53,21 +51,19 @@ char		**ft_strsplit(char const *s, char c)
 	char	**res;
 	int		nw;
 	int		i;
-	int		x;
 
 	i = 0;
-	x = 0;
 	nw = ft_count_words((char *)s, c);
-	res = (char **)malloc(sizeof(*res) * (ft_count_words((char *)s, c) + 1));
-	if (res == NULL)
+	if (!(res = (char **)malloc(sizeof(char *) * (nw + 1))))
 		return (NULL);
 	while (nw--)
 	{
-		while (s[x] == c)
-			x++;
-		res[i] = ft_strsub((char *)s, x, ft_strclen((char *)s, c));
+		while (*s == c && *s != '\0')
+			s++;
+		res[i] = ft_strsub((char *)s, 0, ft_strclen((char *)s, c));
 		if (res[i] == NULL)
-			return (NULL);
+			return (res);
+		s = s + ft_strclen((char *)s, c);
 		i++;
 	}
 	res[i] = NULL;
