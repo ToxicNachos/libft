@@ -18,17 +18,12 @@ char	*ft_strnstr(const char *str, const char *find, size_t len)
 
 	if (len == 0 || *find == '\0')
 		return ((char *)str);
-	i = 0;
-	while (*str && len)
+	i = ft_strlen(find);
+	while (*str && len-- >= i)
 	{
-		if (*str == find[i])
-			i++;
-		else
-			i = 0;
-		if (find[i] == '\0')
-			return ((char *)(str - i + 1));
+		if (*str == *find && ft_memcmp(str, find, i) == 0)
+			return ((char*)str);
 		str++;
-		len--;
 	}
 	return (NULL);
 }
