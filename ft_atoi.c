@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pkumar <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: stestein <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/19 17:51:44 by pkumar            #+#    #+#             */
-/*   Updated: 2018/04/19 19:30:21 by pkumar           ###   ########.fr       */
+/*   Created: 2018/02/19 10:31:54 by stestein          #+#    #+#             */
+/*   Updated: 2018/03/12 20:05:39 by stestein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,23 @@
 int	ft_atoi(const char *str)
 {
 	unsigned int	i;
-	int				num;
-	int				isneg;
+	int				res;
+	int				sign;
 
 	i = 0;
-	num = 0;
-	isneg = 1;
-	while (ft_isspace(str[i]))
+	res = 0;
+	sign = 1;
+	while (str[i] == '\n' || str[i] == ' ' || str[i] == '\f' || str[i] == '\t'
+			|| str[i] == '\v' || str[i] == '\r')
 		i++;
 	if (str[i] == '-')
-		isneg = -1;
-	if (str[i] == '+' || str[i] == '-')
+		sign = -1;
+	if (str[i] == '-' || str[i] == '+')
 		i++;
-	while (ft_isdigit(str[i]))
-		num = num * 10 + (str[i++] - '0');
-	return (num * isneg);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10 + (str[i] - '0');
+		i++;
+	}
+	return (res * sign);
 }

@@ -3,27 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pkumar <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: stestein <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/20 15:42:24 by pkumar            #+#    #+#             */
-/*   Updated: 2018/04/20 15:42:25 by pkumar           ###   ########.fr       */
+/*   Created: 2018/02/21 10:03:35 by stestein          #+#    #+#             */
+/*   Updated: 2018/03/13 10:37:13 by stestein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *find, size_t len)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	size_t	i;
+	unsigned int i;
+	unsigned int j;
 
-	if (len == 0 || *find == '\0')
-		return ((char *)str);
-	i = ft_strlen(find);
-	while (*str && len-- >= i)
+	i = 0;
+	j = 0;
+	if (str[i] == to_find[i] && str[i] == '\0')
+		return ((char *)&str[i]);
+	while (str[i] && i <= len)
 	{
-		if (*str == *find && ft_memcmp(str, find, i) == 0)
-			return ((char*)str);
-		str++;
+		j = i;
+		while (str[j] == to_find[j - i] && str[j] && j < len)
+			j++;
+		if (to_find[j - i] == '\0')
+			return ((char *)&str[i]);
+		i++;
 	}
-	return (NULL);
+	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pkumar <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: stestein <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/20 15:36:12 by pkumar            #+#    #+#             */
-/*   Updated: 2018/04/20 15:36:13 by pkumar           ###   ########.fr       */
+/*   Created: 2018/02/20 16:45:47 by stestein          #+#    #+#             */
+/*   Updated: 2018/03/13 10:39:13 by stestein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,20 @@
 
 char	*ft_strstr(const char *str, const char *to_find)
 {
-	int i;
-	int	pos;
-	int	len;
+	unsigned int i;
+	unsigned int j;
 
 	i = 0;
-	pos = 0;
-	len = 0;
-	while (to_find[len] != '\0')
-		len++;
-	if (len == 0)
-		return ((char *)str);
+	j = 0;
+	if (str[i] == to_find[i] && str[i] == '\0')
+		return ((char *)&str[i]);
 	while (str[i])
 	{
-		while (to_find[pos] == str[i + pos])
-		{
-			if (pos == len - 1)
-				return ((char *)str + i);
-			pos++;
-		}
-		pos = 0;
+		j = i;
+		while (str[j] == to_find[j - i] && str[j])
+			j++;
+		if (to_find[j - i] == '\0')
+			return ((char *)&str[i]);
 		i++;
 	}
 	return (0);
