@@ -15,9 +15,9 @@
 int	ft_isalpha(int i)
 {
 	if (i >= 65 && i <= 90)
-		return (i);
+		return (1);
 	else if (i >= 97 && i <= 122)
-		return (i);
+		return (1);
 	else
 		return (0);
 }

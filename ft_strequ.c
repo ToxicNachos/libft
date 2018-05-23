@@ -15,23 +15,17 @@
 int	ft_strequ(char const *s1, char const *s2)
 {
 	unsigned int	i;
-	unsigned int	len;
 
 	i = 0;
-	len = 0;
-	if (!*s1 && !*s2)
+	if (s1 == NULL && s2 == NULL)
 		return (1);
-	else
+	if (s1 == NULL || s2 == NULL)
+		return (0);
+	while (s1[i] && s2[i])
 	{
-		while (s1[len])
-			len++;
-		while (s1[i] && s2[i] && i <= len)
-		{
-			if (s1[i] == s2[i])
-				i++;
-			else
-				return (0);
-		}
+		if (ft_strcmp(s1, s2) != 0)
+			return (0);
+		i++;
 	}
 	return (1);
 }

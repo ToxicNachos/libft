@@ -53,6 +53,8 @@ char		**ft_strsplit(char const *s, char c)
 	int		i;
 
 	i = 0;
+	if (s == NULL)
+		return (NULL);
 	nw = ft_count_words((char *)s, c);
 	if (!(res = (char **)malloc(sizeof(char *) * (nw + 1))))
 		return (NULL);
